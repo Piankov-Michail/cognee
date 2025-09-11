@@ -37,21 +37,6 @@ services:
           cpus: "2.0"
           memory: 4GB
 
-  qdrant:
-    image: qdrant/qdrant:latest
-    container_name: qdrant
-    profiles:
-      - qdrant
-    ports:
-      - "6333:6333" # REST API port
-      - "6334:6334" # gRPC port
-    environment:
-      - QDRANT__SERVICE__API_KEY=cognee
-    networks:
-      - cognee-network
-    volumes:
-      - qdrant_storage:/qdrant/storage
-
   neo4j:
     image: neo4j:latest
     container_name: neo4j
